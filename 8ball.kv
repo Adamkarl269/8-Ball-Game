@@ -1,0 +1,79 @@
+# Filename: 8ball.kv
+#:include main.py
+
+
+Screen:
+
+    MDFloatingActionButton:
+
+        icon: "brightness-4"
+        md_bg_color: app.theme_cls.primary_color
+        on_press: app.change_to_dark()
+        size_hint: None, None
+        size: "40dp", "40dp"
+        pos_hint: {"center_x": .05, "center_y": .2}
+
+    MDFloatingActionButton:
+
+        icon: "brightness-6"
+        md_bg_color: app.theme_cls.primary_color
+        on_press: app.change_to_light()
+        size_hint: None, None
+        size: "40dp", "40dp"
+        pos_hint: {"center_x": .05, "center_y": .1}
+
+    MDCard:
+
+        size_hint: None, None
+        size: 500, 600
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+        elevation: 40
+        padding: 25
+        spacing: 25
+        md_bg_color: 217/255, 217/255, 217/255, 1
+
+        orientation: "vertical"
+
+        MDBoxLayout:
+
+            Image:
+
+                source: "magicBallStart.png"
+                size_hint_x: .6
+                halign: "center"
+                size_hint_y: .6
+                height: self.texture_size[1]
+                padding_y: 150
+
+        MDLabel:
+
+            id: label_one
+            text: "Ask 8 Ball any question you want"
+            font_name: "Raleway-Regular"
+            theme_text_color: "Custom"
+            text_color: 15/255, 61/255, 62/255, 1
+            font_size: 30
+            halign: "center"
+            size_hint_y: None
+            height: self.texture_size[1]
+            padding_y: 35
+
+        MDTextField:
+
+            id: question
+            hint_text: "Type here"
+            mode: "round"
+            padding_y: 35
+
+        MDFillRoundFlatButton:
+
+            text: "SHAKE 8 BALL"
+            background_color: 15, 61, 62
+            halign: "center"
+            pos_hint: {"center_x": .5, "center_y": .5}
+            on_press: app.response()
+
+        Widget:
+
+            size_hint_y: None
+            height: 20
